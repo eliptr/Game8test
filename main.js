@@ -19,16 +19,11 @@ var date = new Date().toLocaleString();
   localStorage.setItem('date2', Date());
 };*/
 
-document.addEventListener("deviceready", onReady, false);
-
 document.addEventListener("pause", onPause, false);
 
 function onPause() {
     localStorage.setItem('date2', Date());
 }
-
-document.addEventListener("resume", onReady, false);
-
 
 var windowWidth = window.innerWidth;
 var windowHeight = window.innerHeight;
@@ -56,12 +51,6 @@ pad.src = "images/pad3.png";
 tray.src = "images/tray.png";
 bread.src = "images/hunger2.png";
 hotdog.src = "images/hotdog4.png";
-
-function onReady() {
-  draw()
-  test()
-  hotdog.src = "images/floor.png";
-}
 
 //variables
 var wid = window.innerWidth ;
@@ -92,6 +81,19 @@ var d2 = Date.parse(localStorage.date2);
 var diff = Math.abs(d1-d2);  // difference in milliseconds
 var finaldif = Math.floor(diff / 1000);
 
+
+// starting hunger bar height
+function test() {
+  if (localStorage.getItem('items')) {
+    height = JSON.parse(localStorage.getItem('items')) - (finaldif * 0.0987);
+    console.log("effeF");
+  } else {
+    height = 119.4;
+    console.log("efeafq");
+  }
+  console.log(finaldif);
+}
+test()
 
 // on load
 function draw() {
@@ -151,18 +153,6 @@ function counter() {
 } // End
 counter()
 
-// starting hunger bar height
-function test() {
-  if (localStorage.getItem('items')) {
-    height = JSON.parse(localStorage.getItem('items')) - (finaldif * 0.0987);
-    console.log("effeF");
-  } else {
-    height = 119.4;
-    console.log("efeafq");
-  }
-  console.log(finaldif);
-}
-test()
 
 function hungerGoingDown() {
   height = height - down;
