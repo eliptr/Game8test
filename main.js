@@ -29,10 +29,6 @@ function onPause() {
 
 document.addEventListener("resume", onReady, false);
 
-function onReady() {
-  draw()
-  test()
-}
 
 var windowWidth = window.innerWidth;
 var windowHeight = window.innerHeight;
@@ -60,6 +56,12 @@ pad.src = "images/pad3.png";
 tray.src = "images/tray.png";
 bread.src = "images/hunger2.png";
 hotdog.src = "images/hotdog4.png";
+
+function onReady() {
+  draw()
+  test()
+  hotdog.src = "images/floor.png";
+}
 
 //variables
 var wid = window.innerWidth ;
