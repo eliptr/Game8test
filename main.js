@@ -19,7 +19,7 @@ var date = new Date().toLocaleString();
   localStorage.setItem('date2', Date());
 };*/
 
-document.addEventListener("deviceready", draw, false);
+document.addEventListener("deviceready", onReady, false);
 
 document.addEventListener("pause", onPause, false);
 
@@ -27,7 +27,7 @@ function onPause() {
     localStorage.setItem('date2', Date());
 }
 
-document.addEventListener("resume", onResume, false);
+document.addEventListener("resume", onReady, false);
 
 function onReady() {
   draw()
