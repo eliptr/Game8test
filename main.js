@@ -27,8 +27,12 @@ function onPause() {
     localStorage.setItem('date2', Date());
 }
 
-document.addEventListener("resume", test, false);
+document.addEventListener("resume", onResume, false);
 
+function onReady() {
+  draw()
+  test()
+}
 
 var windowWidth = window.innerWidth;
 var windowHeight = window.innerHeight;
