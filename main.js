@@ -121,9 +121,6 @@ function draw() {
   huncon.style.left = 475 / 3.068669527896996 + "px";
   huncon.style.top = 27 + "px";
 
-  var hunbar = document.getElementById('hunbar');
-  document.getElementById('hunbar').style.top = 119.4 + "px";
-
   ctx.drawImage(pad, paX, paY);
   ctx.drawImage(piece, pX, pY);
   ctx.drawImage(floor, fX, fY);
