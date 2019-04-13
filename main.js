@@ -34,12 +34,12 @@ var date = new Date().toLocaleString();
 }; */
 
 document.addEventListener("resume", function(){
-  floor.src = "images/hotdog2.png";
-  if (localStorage.getItem('items')) {
-    height = JSON.parse(localStorage.getItem('items')) - (finaldif * 0.0987);
-  } else {
-    height = 119.4;
-  }
+    floor.src = "images/hotdog2.png";
+    if (localStorage.getItem('items')) {
+      height = JSON.parse(localStorage.getItem('items')) - (finaldif * 0.0987);
+    } else {
+      height = 119.4;
+    }
 }, false);
 
 document.addEventListener("pause", function(){
