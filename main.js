@@ -7,36 +7,6 @@ var huncon = document.getElementById('huncon');
 var hunbar = document.getElementById('hunbar');
 var height;
 
-
-function setIntervalAndExecute(fn, t) {
-    fn();
-    return(setInterval(fn, t));
-}
-
-var date = new Date().toLocaleString();
-
-/*window.onbeforeunload = function(){
-  localStorage.setItem('date2', Date());
-};*/
-
-document.addEventListener("pause", onPause);
-
-function onPause() {
-    localStorage.setItem('date2', Date());
-}
-
-var windowWidth = window.innerWidth;
-var windowHeight = window.innerHeight;
-var pixelRatio = window.devicePixelRatio || 1; /// get pixel ratio of device
-
-canvasMain = document.getElementById("canvas");
-
-canvasMain.width = windowWidth * pixelRatio;   /// resolution of canvas
-canvasMain.height = windowHeight * pixelRatio;
-
-canvasMain.style.width = windowWidth + 'px';   /// CSS size of canvas
-canvasMain.style.height = windowHeight + 'px';
-
 //load images
 var piece = new Image();
 var floor = new Image();
@@ -51,6 +21,55 @@ pad.src = "images/pad3.png";
 tray.src = "images/tray.png";
 bread.src = "images/hunger2.png";
 hotdog.src = "images/hotdog4.png";
+
+function setIntervalAndExecute(fn, t) {
+    fn();
+    return(setInterval(fn, t));
+}
+
+var date = new Date().toLocaleString();
+
+/*  window.onbeforeunload = function(){
+  localStorage.setItem('date2', Date());
+}; */
+
+document.addEventListener("pause", onPause);
+
+function onPause() {
+    localStorage.setItem('date2', date);
+}
+
+document.addEventListener("resume", function() {
+  test()
+  one()
+});
+
+var windowWidth = window.innerWidth;
+var windowHeight = window.innerHeight;
+var pixelRatio = window.devicePixelRatio || 1; /// get pixel ratio of device
+
+canvasMain = document.getElementById("canvas");
+
+canvasMain.width = windowWidth * pixelRatio;   /// resolution of canvas
+canvasMain.height = windowHeight * pixelRatio;
+
+canvasMain.style.width = windowWidth + 'px';   /// CSS size of canvas
+canvasMain.style.height = windowHeight + 'px';
+
+/*//load images
+var piece = new Image();
+var floor = new Image();
+var pad = new Image();
+var tray = new Image();
+var bread = new Image();
+var hotdog = new Image();
+
+piece.src = "images/piece2.png";
+floor.src = "images/floor2.png";
+pad.src = "images/pad3.png";
+tray.src = "images/tray.png";
+bread.src = "images/hunger2.png";
+hotdog.src = "images/hotdog4.png"; */
 
 //variables
 var wid = window.innerWidth ;
@@ -139,7 +158,6 @@ function draw() {
 
   requestAnimationFrame(draw, 10);
   requestAnimationFrame(foodpi, 10);
-  setInterval(hungerStopping, 10);
   requestAnimationFrame(hungerGoingDown, 100);
 }
 
@@ -151,7 +169,6 @@ function counter() {
         if (i == 100) clearInterval(this);
         else console.log( 'Currently at ' + (height.toFixed(3)));
     }, 1000);
-    floor.src = "images/piece.png";
 } // End
 counter()
 
@@ -169,7 +186,9 @@ function hungerStopping() {
   if (height > 119.4) {
     height = 119.4;
   }
+  setInterval(hungerStopping, 10);
 }
+hungerStopping()
 
 function foch() {
   foo = !foo;
@@ -205,8 +224,6 @@ function applef() {
   down = 0.00016;
 }
 
-function foodclicked() {
-  if (true) {
-
-  }
+function one() {
+  floor.src = "images/piece.png";
 }
