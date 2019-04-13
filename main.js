@@ -33,14 +33,14 @@ var date = new Date().toLocaleString();
   localStorage.setItem('date2', Date());
 }; */
 
-document.addEventListener("pause", function() {
-    localStorage.setItem('date2', date);
-});
+document.addEventListener("resume", function(){
+    test()
+    one()
+}, false);
 
-document.addEventListener("resume", function() {
-  test()
-  one()
-});
+document.addEventListener("pause", function(){
+    localStorage.setItem('date2', Date());
+}, false);
 
 var windowWidth = window.innerWidth;
 var windowHeight = window.innerHeight;
