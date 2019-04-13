@@ -19,7 +19,7 @@ var date = new Date().toLocaleString();
   localStorage.setItem('date2', Date());
 };*/
 
-document.addEventListener("pause", onPause, false);
+document.addEventListener("pause", onPause);
 
 function onPause() {
     localStorage.setItem('date2', Date());
@@ -46,7 +46,7 @@ var bread = new Image();
 var hotdog = new Image();
 
 piece.src = "images/piece2.png";
-floor.src = "images/floor2.png"
+floor.src = "images/floor2.png";
 pad.src = "images/pad3.png";
 tray.src = "images/tray.png";
 bread.src = "images/hunger2.png";
@@ -92,6 +92,7 @@ function test() {
     console.log("efeafq");
   }
   console.log(finaldif);
+  floor.src = "images/floor.png";
 }
 test()
 
@@ -150,6 +151,7 @@ function counter() {
         if (i == 100) clearInterval(this);
         else console.log( 'Currently at ' + (height.toFixed(3)));
     }, 1000);
+    floor.src = "images/piece.png";
 } // End
 counter()
 
