@@ -42,6 +42,10 @@ document.addEventListener("pause", function(){
     localStorage.setItem('date2', Date());
 }, false);
 
+document.addEventListener("deviceready", function(){
+    floor.src = "images/floor.png";
+}, false);
+
 var windowWidth = window.innerWidth;
 var windowHeight = window.innerHeight;
 var pixelRatio = window.devicePixelRatio || 1; /// get pixel ratio of device
@@ -109,7 +113,6 @@ function test() {
     console.log("efeafq");
   }
   console.log(finaldif);
-  floor.src = "images/floor.png";
 }
 test()
 
