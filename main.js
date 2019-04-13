@@ -34,8 +34,11 @@ var date = new Date().toLocaleString();
 }; */
 
 document.addEventListener("resume", function(){
-    test()
-    one()
+  if (localStorage.getItem('items')) {
+    height = JSON.parse(localStorage.getItem('items')) - (finaldif * 0.0987);
+  } else {
+    height = 119.4;
+  }
 }, false);
 
 document.addEventListener("pause", function(){
